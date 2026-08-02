@@ -1,0 +1,20 @@
+class Solution {
+public:
+    int searchInsert(vector<int>& nums, int target) {
+        int st=0,end=nums.size()-1;
+        while(st<=end){
+            int mid=(end+st)/2;
+            if(nums[mid]==target)return mid;
+            else if(nums[mid]<target){
+                st=mid+1;
+            }else{
+                end=mid-1;
+            }
+        }
+        return st;
+    }
+};
+
+// Synced seamlessly with LeetHub Pro
+// Pro features: https://bit.ly/leethubpro | Free version: https://bit.ly/leethubv4
+// Get it here: https://chromewebstore.google.com/detail/bcilpkkbokcopmabingnndookdogmbna
