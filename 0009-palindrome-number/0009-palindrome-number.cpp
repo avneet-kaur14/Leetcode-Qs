@@ -8,9 +8,6 @@ public:
         int og=x;
         while(x>0){
             int ld=x%10;
-            if(rev > INT_MAX / 10 || (rev == INT_MAX / 10 && ld > 7)){
-                return false;
-            }
             rev=rev*10+ld;
             x/=10;
         }
