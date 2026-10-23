@@ -4,6 +4,8 @@ public:
         int n=nums.size();
         k=k%n; //for k>n
 
+        if(k!=0){
+
         int i=0,j=n-1;
         while(i<j){
             swap(nums[i],nums[j]);
@@ -16,6 +18,7 @@ public:
         }
         for(int i=k,j=n-1;i<j;i++,j--){
             swap(nums[i],nums[j]);
+        }
         }
     }
 };
