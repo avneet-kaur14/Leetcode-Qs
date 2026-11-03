@@ -14,25 +14,28 @@ public:
         ListNode* prev=nullptr;
         ListNode* slow=head;
         ListNode* fast=head;
+
         while(fast!=nullptr && fast->next!=nullptr){
             slow=slow->next;
             fast=fast->next->next;
         }
+
         while(slow!=nullptr){
             ListNode* nxt=slow->next;
             slow->next=prev;
             prev=slow;
             slow=nxt;
         }
-        ListNode* sh=prev;
+
         fast=head;
-        while(fast!=prev && sh!=nullptr){
-            if(fast->val != sh->val){
+        while(prev!=nullptr){
+            if(prev-> val != fast->val){
                 return false;
             }
+            prev=prev->next;
             fast=fast->next;
-            sh=sh->next;
         }
+
         return true;
     }
 };
