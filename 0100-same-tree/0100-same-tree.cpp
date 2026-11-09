@@ -17,12 +17,24 @@ public:
         if(!p || !q)
             return false;
 
-        if(p->val!=q->val){
-            return false;
-        }
+       queue<pair<TreeNode* , TreeNode*>>que;
+        que.push({p,q});
 
-        return isSameTree(p->left , q->left) && isSameTree(p->right , q->right);
+       while(!que.empty()){
+            auto [f,s]=que.front();
+            que.pop();
 
+            if(!f && !s)
+                continue;
+            if(!f || !s)
+                return false;
+            if(f->val!=s->val)
+                return false;
+
+            que.push({f->left , s->left});
+            que.push({f->right , s->right});
+       }
+        return true;
     }
 };
 
